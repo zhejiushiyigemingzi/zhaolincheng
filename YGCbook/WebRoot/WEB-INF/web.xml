@@ -595,6 +595,81 @@
   	<location>/error500.jsp</location>
   </error-page>
   -->
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <servlet>
+    <servlet-name>UserRegisterServlet</servlet-name>
+    <servlet-class>co.jsp.servlet.UserRegisterServlet</servlet-class>
+  </servlet>
+  
+    <servlet-mapping>
+    <servlet-name>UserRegisterServlet</servlet-name>
+    <url-pattern>/userRegister</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+
+  
   <welcome-file-list>
     <welcome-file>FindBookTypeServlet</welcome-file>
   </welcome-file-list>

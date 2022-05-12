@@ -1,41 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <libraryInfos>
-<libraryInfo home="D:\eclipse" version="1.8.0_40">
+<libraryInfo home="D:\A实战\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80" version="1.7.0_80">
 <bootpath>
-<entry path="D:\eclipse\jre\lib\resources.jar"/>
-<entry path="D:\eclipse\jre\lib\rt.jar"/>
-<entry path="D:\eclipse\jre\lib\sunrsasign.jar"/>
-<entry path="D:\eclipse\jre\lib\jsse.jar"/>
-<entry path="D:\eclipse\jre\lib\jce.jar"/>
-<entry path="D:\eclipse\jre\lib\charsets.jar"/>
-<entry path="D:\eclipse\jre\lib\jfr.jar"/>
-<entry path="D:\eclipse\jre\classes"/>
+<entry path="D:\A实战\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\lib\resources.jar"/>
+<entry path="D:\A实战\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\lib\rt.jar"/>
+<entry path="D:\A实战\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\lib\sunrsasign.jar"/>
+<entry path="D:\A实战\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\lib\jsse.jar"/>
+<entry path="D:\A实战\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\lib\jce.jar"/>
+<entry path="D:\A实战\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\lib\charsets.jar"/>
+<entry path="D:\A实战\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\lib\jfr.jar"/>
+<entry path="D:\A实战\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\classes"/>
 </bootpath>
 <extensionDirs>
-<entry path="D:\eclipse\jre\lib\ext"/>
+<entry path="D:\A实战\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\lib\ext"/>
 <entry path="C:\Windows\Sun\Java\lib\ext"/>
 </extensionDirs>
 <endorsedDirs>
-<entry path="D:\eclipse\jre\lib\endorsed"/>
+<entry path="D:\A实战\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\lib\endorsed"/>
 </endorsedDirs>
 </libraryInfo>
-<libraryInfo home="D:\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80" version="1.7.0_80">
+<libraryInfo home="D:\A实战\eclipse\jre" version="1.8.0_40">
 <bootpath>
-<entry path="D:\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\lib\resources.jar"/>
-<entry path="D:\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\lib\rt.jar"/>
-<entry path="D:\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\lib\sunrsasign.jar"/>
-<entry path="D:\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\lib\jsse.jar"/>
-<entry path="D:\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\lib\jce.jar"/>
-<entry path="D:\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\lib\charsets.jar"/>
-<entry path="D:\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\lib\jfr.jar"/>
-<entry path="D:\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\classes"/>
+<entry path="D:\A实战\eclipse\jre\lib\resources.jar"/>
+<entry path="D:\A实战\eclipse\jre\lib\rt.jar"/>
+<entry path="D:\A实战\eclipse\jre\lib\sunrsasign.jar"/>
+<entry path="D:\A实战\eclipse\jre\lib\jsse.jar"/>
+<entry path="D:\A实战\eclipse\jre\lib\jce.jar"/>
+<entry path="D:\A实战\eclipse\jre\lib\charsets.jar"/>
+<entry path="D:\A实战\eclipse\jre\lib\jfr.jar"/>
+<entry path="D:\A实战\eclipse\jre\classes"/>
 </bootpath>
 <extensionDirs>
-<entry path="D:\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\lib\ext"/>
+<entry path="D:\A实战\eclipse\jre\lib\ext"/>
 <entry path="C:\Windows\Sun\Java\lib\ext"/>
 </extensionDirs>
 <endorsedDirs>
-<entry path="D:\NW0030-用户管理实战项目源码\shopping_workspace\jdk1.7.0_80\jre\lib\endorsed"/>
+<entry path="D:\A实战\eclipse\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="D:\A实战\eclipse" version="1.8.0_40">
+<bootpath>
+<entry path="D:\A实战\eclipse\jre\lib\resources.jar"/>
+<entry path="D:\A实战\eclipse\jre\lib\rt.jar"/>
+<entry path="D:\A实战\eclipse\jre\lib\sunrsasign.jar"/>
+<entry path="D:\A实战\eclipse\jre\lib\jsse.jar"/>
+<entry path="D:\A实战\eclipse\jre\lib\jce.jar"/>
+<entry path="D:\A实战\eclipse\jre\lib\charsets.jar"/>
+<entry path="D:\A实战\eclipse\jre\lib\jfr.jar"/>
+<entry path="D:\A实战\eclipse\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="D:\A实战\eclipse\jre\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="D:\A实战\eclipse\jre\lib\endorsed"/>
 </endorsedDirs>
 </libraryInfo>
 </libraryInfos>
