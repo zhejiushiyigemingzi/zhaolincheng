@@ -2,12 +2,13 @@ package co.jsp.entity;
 
 
 
-public class Userinfo {
+public class UserinfoHobby {
 	private String username;
 	private String password;
 	private String sex;
 	private String major;
 	private String intro;
+	private String hobby;
 	public String getUsername() {
 		return username;
 	}
@@ -38,18 +39,26 @@ public class Userinfo {
 	public void setIntro(String intro) {
 		this.intro = intro;
 	}
-	public Userinfo(String username, String password, String sex, String major, String intro) {
+	public String getHobby() {
+		return hobby;
+	}
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
+	public UserinfoHobby(String username, String password, String sex, String major, String intro, String hobby) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.sex = sex;
 		this.major = major;
 		this.intro = intro;
+		this.hobby = hobby;
 	}
-	public Userinfo() {
+	public UserinfoHobby() {
 		super();
-		
+		// TODO Auto-generated constructor stub
 	}
+	
 	
 	
 	

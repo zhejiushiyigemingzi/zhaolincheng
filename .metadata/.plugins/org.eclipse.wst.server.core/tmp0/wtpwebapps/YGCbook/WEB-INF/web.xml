@@ -666,7 +666,15 @@
   
   
   
+  <servlet>
+    <servlet-name>UserSearchServlet</servlet-name>
+    <servlet-class>co.jsp.servlet.UserSearchServlet</servlet-class>
+  </servlet>
   
+    <servlet-mapping>
+    <servlet-name>UserSearchServlet</servlet-name>
+    <url-pattern>/userSearch</url-pattern>
+  </servlet-mapping>
   
 
   

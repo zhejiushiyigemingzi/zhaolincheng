@@ -15,3 +15,4 @@ public class BookTypeMapping implements IResultSetMapping{
 		return bookType;
 	}
 }
+ 
