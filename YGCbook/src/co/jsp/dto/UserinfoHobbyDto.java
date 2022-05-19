@@ -12,6 +12,13 @@ public class UserinfoHobbyDto {
 	private String major;
 	private String intro;
 	private List<HobbyDto> hobbylist = new ArrayList<HobbyDto>();
+	private String hobbys;
+	public String getHobbys() {
+		return hobbys;
+	}
+	public void setHobbys(String hobbys) {
+		this.hobbys = hobbys;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -20,6 +27,17 @@ public class UserinfoHobbyDto {
 	}
 	public String getPassword() {
 		return password;
+	}
+	public UserinfoHobbyDto(String username, String password, String sex, String major, String intro,
+			List<HobbyDto> hobbylist, String hobbys) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.sex = sex;
+		this.major = major;
+		this.intro = intro;
+		this.hobbylist = hobbylist;
+		this.hobbys = hobbys;
 	}
 	public void setPassword(String password) {
 		this.password = password;

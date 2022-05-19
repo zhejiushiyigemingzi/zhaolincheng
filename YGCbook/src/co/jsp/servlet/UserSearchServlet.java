@@ -2,11 +2,13 @@ package co.jsp.servlet;
 
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,11 +32,6 @@ public class UserSearchServlet extends HttpServlet {
         //String[] hobbyArray = request.getParameterValues("hobby");		
 		//专业
 		String major = request.getParameter("major");
-				
-		
-		
-		
-		
 		/*HobbyDAO hobbydao = new HobbyDAO();
 		List<Hobby> list1 = hobbydao.findByName(username, hobbyArray);*/
 		
@@ -60,35 +57,50 @@ public class UserSearchServlet extends HttpServlet {
 				//将用户名加到用户名list里去
 				userNameList.add(userinfoHobby.getUsername());
 				//将爱好加入子dto中
-			    dto.getHobbylist().add(new HobbyDto(userinfoHobby.getHobby()));
+				if(userinfoHobby.getHobby() != null){
+			         dto.getHobbylist().add(new HobbyDto(userinfoHobby.getHobby()));
+				}
 			}else{
 				//取得以往添加过得大DTO
 	            for(UserinfoHobbyDto temp : UserinfoHobbyDto){
 		           if(temp.getUsername().equals(userinfoHobby.getUsername())){
 			         //将爱好加入子dto中
-			         temp.getHobbylist().add(new HobbyDto(userinfoHobby.getHobby()));
+		        	 if(userinfoHobby.getHobby() != null){
+			             temp.getHobbylist().add(new HobbyDto(userinfoHobby.getHobby()));
+		        	 }
 	               }
 	            }
-		  }
-	 }
+		    }
+	    }
+		
+		request.setAttribute("UserinfoHobbyDto", UserinfoHobbyDto);
+		
 		for(UserinfoHobbyDto result : UserinfoHobbyDto){
 		   	System.out.println("----------------");
 			System.out.println("姓名:" + result.getUsername());
 			System.out.println("密码:" + result.getPassword());
 			System.out.println("性别:" + result.getSex());
-			System.out.println("专业:" + result.getMajor());
-			System.out.println("简介:" + result.getIntro());
 			System.out.print("爱好:");
+			System.out.println("专业:" + result.getMajor());
+			System.out.println("简介:" + result.getIntro());	
 			StringBuffer sb = new StringBuffer("");
 			for(HobbyDto hobbyDto : result.getHobbylist()){
-				sb.append(hobbyDto.getHobby() + ",");
+				if(hobbyDto.getHobby() != null){
+				    sb.append(hobbyDto.getHobby() + ",");
+				}
 			}
-			if(",".equals(sb.toString().substring(sb.toString().length()-1))){
-				System.out.println(sb.toString().substring(0,sb.toString().length()-1));
-			}else{
-				System.out.println(sb.toString());
+			result.setHobbys(sb.toString().replace("0","足球").replace("1","篮球").replace("2","网球"));
+			//当有爱好是，才执行操作截取逗号操作，否则报错
+			if(!"".equals(result.getHobbys())){
+				if(",".equals(sb.toString().substring(sb.toString().length()-1))){
+					result.setHobbys(result.getHobbys().substring(0,result.getHobbys().length()-1).replace("0","足球").replace("1","篮球").replace("2","网球"));
+					System.out.println(result.getHobbys().substring(0,sb.toString().length()-1));
+				}else{
+					result.setHobbys(result.getHobbys().substring(0,result.getHobbys().length()-1).replace("0","足球").replace("1","篮球").replace("2","网球"));
+					System.out.println(result.getHobbys());
+				}
 			}
-			 System.out.println("");
+			System.out.println("");
 		 }
 		//System.out.println("取得成功");
 		System.out.println("向画面进行展示");
@@ -108,8 +120,10 @@ public class UserSearchServlet extends HttpServlet {
 		
 		//request.setAttribute("admin", admin);
         if(true){
-		    request.getRequestDispatcher("/userRegSucess.jsp").forward(request, response);
-	
+        	//这种跳转方式，不会把requset里的参数全部清除掉掉进行跳转
+	        request.getRequestDispatcher("/userSearch.jsp").forward(request, response);
+	        //这种跳转方式，会把requset里的参数全部清除掉掉进行跳转
+	        //response.sendRedirect("/userRegSucess.jsp");
         }else{
         	request.getRequestDispatcher("/userRegErr.jsp").forward(request, response);
         }

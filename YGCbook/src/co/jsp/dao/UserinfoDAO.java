@@ -2,6 +2,7 @@ package co.jsp.dao;
 
 import java.sql.SQLException;
 
+
 import java.util.List;
 import java.util.Vector;
 
@@ -63,7 +64,7 @@ public class UserinfoDAO {
 		//用户名
 		if(!"".equals(username)){
 			
-			sql = sql + " username = '" + username + "' and";
+			sql = sql + " userinfo.username = '" + username + "' and";
 		}
 		//性别
 		sql = sql + " sex = '" + sex + "'";
