@@ -651,6 +651,9 @@
   
   
   
+      <!-- 
+  �û���Ϣע�� START
+   -->
   
   
   
@@ -659,11 +662,18 @@
     <servlet-class>co.jsp.servlet.UserRegisterServlet</servlet-class>
   </servlet>
   
+ 
     <servlet-mapping>
     <servlet-name>UserRegisterServlet</servlet-name>
     <url-pattern>/userRegister</url-pattern>
   </servlet-mapping>
   
+ <!-- 
+  �û���Ϣע�� END
+   -->
+    <!-- 
+  �û���Ϣ���� START
+   -->
   
   
   <servlet>
@@ -671,12 +681,75 @@
     <servlet-class>co.jsp.servlet.UserSearchServlet</servlet-class>
   </servlet>
   
+
+  
     <servlet-mapping>
     <servlet-name>UserSearchServlet</servlet-name>
     <url-pattern>/userSearch</url-pattern>
   </servlet-mapping>
   
+ <!-- 
+  �û���Ϣ���� END
+   -->
+  
+    <!-- 
+  �û����»����ʼ�� START
+   -->
+  
+    <servlet>
+    <servlet-name>userUpdateInitServlet</servlet-name>
+    <servlet-class>co.jsp.servlet.UserUpdateInitServlet</servlet-class>
+  </servlet>
+  
 
+    <servlet-mapping>
+    <servlet-name>userUpdateInitServlet</servlet-name>
+    <url-pattern>/userUpdateInit</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 
+  �û����»����ʼ�� END
+   -->
+  
+ <!-- 
+  �û����� START
+   -->
+  <servlet>
+    <servlet-name>userUpdateServlet</servlet-name>
+    <servlet-class>co.jsp.servlet.UserUpdateServlet</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+    <servlet-name>userUpdateServlet</servlet-name>
+    <url-pattern>/userUpdate</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 
+  �û����� END
+   -->
+  
+  
+  
+   <!-- 
+  �û����� START
+   -->
+  <servlet>
+    <servlet-name>userDelServlet</servlet-name>
+    <servlet-class>co.jsp.servlet.UserDelServlet</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+    <servlet-name>userDelServlet</servlet-name>
+    <url-pattern>/userDel</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 
+  �û����� END
+   -->
+  
+  
   
   <welcome-file-list>
     <welcome-file>FindBookTypeServlet</welcome-file>

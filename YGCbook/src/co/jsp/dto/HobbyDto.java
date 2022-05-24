@@ -17,10 +17,7 @@ public class HobbyDto {
 		super();
 		this.hobby = hobby;
 	}
-	public HobbyDto() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
 	
 	
 	

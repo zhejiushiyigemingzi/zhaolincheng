@@ -27,7 +27,7 @@ public class HobbyDAO {
 						hobbyObject.getUsername(), 
 						hobbyObject.getHobby()};
 				 
-			   template.updata(sql, values);
+			  row = template.updata(sql, values);
 			}
 			
 		} catch (SQLException e) {
@@ -36,10 +36,22 @@ public class HobbyDAO {
 			e.printStackTrace();
 		}
 		return (row == 1);
-	
-	
 	}
 	
-	
+	//伦理删除
+	public boolean delHobby(String username) {
+		String sql = "update hobby set delFlg = '1' where username = ?";
+
+		Object[] values = new Object[]{username};
+		
+		try {
+			 template.updata(sql, values);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}catch (ClassNotFoundException e) { 
+			e.printStackTrace();
+		}
+		return true;
+	}
 }
 

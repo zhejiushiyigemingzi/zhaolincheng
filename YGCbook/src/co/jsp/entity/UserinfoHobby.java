@@ -58,6 +58,10 @@ public class UserinfoHobby {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public String getHobbys() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	

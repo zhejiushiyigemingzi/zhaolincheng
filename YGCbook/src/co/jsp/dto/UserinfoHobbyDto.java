@@ -1,6 +1,7 @@
 package co.jsp.dto;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import co.jsp.entity.Hobby;
@@ -28,17 +29,7 @@ public class UserinfoHobbyDto {
 	public String getPassword() {
 		return password;
 	}
-	public UserinfoHobbyDto(String username, String password, String sex, String major, String intro,
-			List<HobbyDto> hobbylist, String hobbys) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.sex = sex;
-		this.major = major;
-		this.intro = intro;
-		this.hobbylist = hobbylist;
-		this.hobbys = hobbys;
-	}
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}
@@ -69,7 +60,7 @@ public class UserinfoHobbyDto {
 	public UserinfoHobbyDto(String username, String password, String sex, String major, String intro) {
 		super();
 		this.username = username;
-		this.password = password;
+		this.password = password; 
 		this.sex = sex;
 		this.major = major;
 		this.intro = intro;

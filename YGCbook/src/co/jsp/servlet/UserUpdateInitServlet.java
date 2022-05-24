@@ -5,10 +5,10 @@ import java.io.IOException;
 
 
 
+
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,39 +19,35 @@ import co.jsp.dto.HobbyDto;
 import co.jsp.dto.UserinfoHobbyDto;
 import co.jsp.entity.UserinfoHobby;
 
-public class UserSearchServlet extends HttpServlet {
+public class UserUpdateInitServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		//姓名
 		String username = request.getParameter("username");
-		
 		//性别
-		String sex = request.getParameter("sex");
+		//String sex = request.getParameter("sex");
+		//爱好
+        //String[] hobbyArray = request.getParameterValues("hobby");		
 		//专业
-		String major = request.getParameter("major");
-		//声明UserinfoDAO的,对象名称为userinfodao
+		//String major = request.getParameter("major");
+		/*HobbyDAO hobbydao = new HobbyDAO();
+		List<Hobby> list1 = hobbydao.findByName(username, hobbyArray);*/
+		
 		UserinfoDAO userinfodao = new UserinfoDAO(); 
-		//等号前面：声明一个泛型为 UserinfoHobby的list 作用？ 用来接收userinfodao.findUserInfoANDHobby的方法返回值
-		//等号后面：通过对像userinfodao调用findUserinfoANDHobby方法 调用方式？[.]方法 参数？三个参数都是String类型的
-		List<UserinfoHobby> list= userinfodao.findUserInfoANDHobby(username, sex, major);
+		
+		List<UserinfoHobby> list= userinfodao.findUserInfoANDHobby(username);
 		
 		List<UserinfoHobbyDto> UserinfoHobbyDto = new ArrayList<UserinfoHobbyDto>();
 		//Map<String, String> userNamemap = new HashMap<String, String>();
 		//标识dto是否被创建
 		
 		List<String> userNameList = new ArrayList<String>();
-		//张三
-		
-		
-		//张三，0
-		//张三，1
-		//System.out.println("用户信息如下");
+		System.out.println("用户信息如下");
 		for(UserinfoHobby userinfoHobby:list){
 			//当用户名不存在时,证明大的dto未创建
 			if(!userNameList.contains(userinfoHobby.getUsername())){
-				//通过有参构造方法创建UserinfoHobbyDto的对象
 				UserinfoHobbyDto dto = new UserinfoHobbyDto(userinfoHobby.getUsername(),
 															userinfoHobby.getPassword(),
 															userinfoHobby.getSex(),
@@ -78,59 +74,27 @@ public class UserSearchServlet extends HttpServlet {
 		    }
 	    }
 		
-		request.setAttribute("UserinfoHobbyDto", UserinfoHobbyDto);
+		
 		
 		for(UserinfoHobbyDto result : UserinfoHobbyDto){
-		   	System.out.println("----------------");
-			System.out.println("姓名:" + result.getUsername());
-			System.out.println("密码:" + result.getPassword());
-			System.out.println("性别:" + result.getSex());
-			System.out.println("专业:" + result.getMajor());
-			System.out.println("简介:" + result.getIntro());
-			System.out.print("爱好:");
 			StringBuffer sb = new StringBuffer("");
 			for(HobbyDto hobbyDto : result.getHobbylist()){
 				if(hobbyDto.getHobby() != null){
-				    sb.append(hobbyDto.getHobby() + ",");
+				    sb.append(hobbyDto.getHobby());
 				}
 			}
-			result.setHobbys(sb.toString().replace("0","足球").replace("1","篮球").replace("2","网球"));
-			//当有爱好是，才执行操作截取逗号操作，否则报错
-			if(!"".equals(result.getHobbys())){
-				if(",".equals(sb.toString().substring(sb.toString().length()-1))){
-					result.setHobbys(result.getHobbys().substring(0,result.getHobbys().length()-1));
-					System.out.println(result.getHobbys());
-				}else{
-					result.setHobbys(result.getHobbys());
-					System.out.println(result.getHobbys());
-				}
-			}
-			System.out.println("");
-		 }
-		//System.out.println("取得成功");
-		//System.out.println("向画面进行展示");
-		//boolean sucessFlag = true;
-		//用户信息表登录
-		//boolean result = dao.save(new Userinfo(username,password,sex,major,intro));
-		
-		/*if(userinfodao.save(new Userinfo(username,password,sex,major,intro))){
 			
-			System.out.println("用户信息表登陆成功");
-			
-		}else{
-			System.out.println("用户信息表登陆失败");
-			sucessFlag = false;
-		}*/
+			result.setHobbys(sb.toString());
+		}
+		request.setAttribute("dto", UserinfoHobbyDto.get(0));
 		
-		
-		//request.setAttribute("admin", admin);
         if(true){
         	//这种跳转方式，不会把requset里的参数全部清除掉掉进行跳转
-	        request.getRequestDispatcher("/userSearch.jsp").forward(request, response);
+	        request.getRequestDispatcher("/userReg.jsp").forward(request, response);
 	        //这种跳转方式，会把requset里的参数全部清除掉掉进行跳转
 	        //response.sendRedirect("/userRegSucess.jsp");
         }else{
-        	request.getRequestDispatcher("/userRegErr.jsp").forward(request, response);
+        	request.getRequestDispatcher("/userReg.jsp").forward(request, response);
         }
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response)

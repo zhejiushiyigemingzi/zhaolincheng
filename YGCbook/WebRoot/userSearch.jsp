@@ -27,7 +27,7 @@
 		   <% List<UserinfoHobbyDto> UserinfoHobbyDto =(List<UserinfoHobbyDto>)request.getAttribute("UserinfoHobbyDto");%>
 			  <% if(UserinfoHobbyDto != null){%>
 			  <table border="1" style="width:80%;text-align:center">
-					  <tr bgcolor="yellow">
+					  <tr bgcolor="grey">
 					    <td><strong>姓名</strong></td>
 					    <td><strong>密码</strong></td>
 					    <td><strong>性别</strong></td>
@@ -35,9 +35,19 @@
 					    <td><strong>专业</strong></td>
 					    <td><strong>简介</strong></td>
 					  </tr>
-			      <% for(UserinfoHobbyDto dto : UserinfoHobbyDto){%>
-					  <tr bgcolor="pink">
-					    <td><%=dto.getUsername()%></td>
+					  <% int line=0;%>
+					  <% for(UserinfoHobbyDto dto : UserinfoHobbyDto){
+					        line++;%>
+					  <% if(line%2 == 0){%>
+					      <tr bgcolor="#F0F8FF">
+					  <%} else{%>
+					      <tr bgcolor="#00BFFF">
+					  <%} %>
+					  
+					  
+					  
+					  
+					    <td><a href="userUpdateInit?username=<%=dto.getUsername()%>"><%=dto.getUsername()%></a></td>
 					    <td><%=dto.getPassword()%></td>
 					    <td>
 					    <%

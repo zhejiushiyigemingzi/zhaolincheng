@@ -2,6 +2,11 @@ package co.jsp.servlet;
 
 
 import java.io.IOException;
+
+
+
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,9 +19,8 @@ import co.jsp.dao.HobbyDAO;
 import co.jsp.dao.UserinfoDAO;
 import co.jsp.entity.Hobby;
 import co.jsp.entity.Userinfo;
-import co.jsp.entity.UserinfoHobby;
 
-public class UserRegisterServlet extends HttpServlet {
+public class UserUpdateServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -36,59 +40,48 @@ public class UserRegisterServlet extends HttpServlet {
 		//爱好
 		String[] hobbyArray = request.getParameterValues("hobby");
 				
-		
 		List hobbyList = new ArrayList();
 		
-		
-		
-        for(int i=0;i<hobbyArray.length;i++){
-			
+		for(int i=0;i<hobbyArray.length;i++){
 			Hobby hobbyObject = new Hobby();
 			hobbyObject.setUsername(username);
 			hobbyObject.setHobby(hobbyArray[i]);
 			hobbyList.add(hobbyObject);
 		}
 		
-		
 		HobbyDAO hobbydao = new HobbyDAO();
 		UserinfoDAO userinfodao = new UserinfoDAO(); 
 		
-		boolean sucessFlag = true;
-		//用户信息表登录
-		//boolean result = dao.save(new Userinfo(username,password,sex,major,intro));
 		
-		if(userinfodao.save(new Userinfo(username,password,sex,major,intro))){
-			
-			System.out.println("用户信息表登陆成功");
-			
+		//用户信息表更新Flag
+		boolean updateUserinfoFlag = true;
+		//用户信息表伦理删除
+		updateUserinfoFlag = userinfodao.deluserinfo(username);
+		//用户信息表登录
+		updateUserinfoFlag = userinfodao.save(new Userinfo(username, password, sex, major, intro));
+		
+		if(updateUserinfoFlag){
+			System.out.println("用户信息表更新成功");
 		}else{
-			System.out.println("用户信息表登陆失败");
-			sucessFlag = false;
-			
+			System.out.println("用户信息表更新失败");
 		}
-		System.out.println(sucessFlag);
+		
+		//用户爱好表更新Flag
+		boolean updatehobbyFlag = true;
+		//用户爱好表伦理删除
+		updatehobbyFlag = hobbydao.delHobby(username);
 		//用户爱好表登录
-        if(hobbydao.save(hobbyList)){
-			
-			System.out.println("用户爱好表登陆成功");
-			
+		updatehobbyFlag = hobbydao.save(hobbyList);
+        if(updatehobbyFlag){
+			System.out.println("用户爱好表更新成功");
 		}else{
-			System.out.println("用户爱好表登陆失败");
-			sucessFlag = false;
-			
+			System.out.println("用户爱好表更新失败");
 		}
-        System.out.println(sucessFlag);
-		//request.setAttribute("admin", admin);
-        if(sucessFlag){
-		    request.getRequestDispatcher("/userRegSucess.jsp").forward(request, response);
+		request.getRequestDispatcher("/userUpdateSucess.jsp").forward(request, response);
 	
-        }else{
-        	request.getRequestDispatcher("/userRegErr.jsp").forward(request, response);
-        }
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		this.doGet(request, response);
 	}
-
 }
