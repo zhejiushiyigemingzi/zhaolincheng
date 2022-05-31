@@ -27,6 +27,13 @@
                 <forward name="userSearch" path="/userSearch.jsp"/>
         </action>
         <action
+                path="/delAll"
+                type="co.jsp.action.UserDelAllAction"
+                name="UserForm"
+                scope="request">
+                <forward name="userSearch" path="/userSearch.jsp"/>
+        </action>
+        <action
                 path="/userSearch"
                 type="co.jsp.action.UserSearchAction"
                 name="UserForm"

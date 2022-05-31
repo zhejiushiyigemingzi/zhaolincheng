@@ -18,41 +18,42 @@ function changeActionName(actionName){
 <body>
 	<form action="userUpdate.do" id="form">
 		<bean:message bundle="resource" key="username"/>:<input disabled id="username" name="username" value="<%=dto.getUsername() %>"><br>
-		密码:<input type="password" id="password" name="password" value="<%=dto.getPassword() %>"><br>
-		性别:<input type="radio" name="sex"   id="sex1" value="0" <%if("0".equals(dto.getSex())){ %>checked<%} %>>男<input type="radio"  name="sex" id="sex2"  value="1" <%if("1".equals(dto.getSex())){ %>checked<%} %>>女<br>
-		爱好:<input type="checkbox" name="hobby" value="0" <%if(dto.getHobbys().contains("0")){ %>checked<%} %>>足球
-		    <input type="checkbox" name="hobby" value="1" <%if(dto.getHobbys().contains("1")){ %>checked<%} %>>篮球
-		    <input type="checkbox" name="hobby" value="2" <%if(dto.getHobbys().contains("2")){ %>checked<%} %>>网球<br>
-		专业:<select id="major" name="major" >
-			   <option value="0" <%if("0".equals(dto.getMajor())){ %>selected<%} %>>软件工程</option>
-			   <option value="1" <%if("1".equals(dto.getMajor())){ %>selected<%} %>>英语</option>
-			   <option value="2" <%if("2".equals(dto.getMajor())){ %>selected<%} %>>数学</option> 
+		<bean:message bundle="resource" key="password"/>:<input type="password" id="password" name="password" value="<%=dto.getPassword() %>"><br>
+		<bean:message bundle="resource" key="sex"/>:<input type="radio" name="sex"   id="sex1" value="0" <%if("0".equals(dto.getSex())){ %>checked<%} %>><bean:message bundle="resource" key="male"/><input type="radio"  name="sex" id="sex2"  value="1" <%if("1".equals(dto.getSex())){ %>checked<%} %>><bean:message bundle="resource" key="famale"/><br>
+		<bean:message bundle="resource" key="hobby"/>:
+		    <input type="checkbox" name="hobby" value="0" <%if(dto.getHobbys().contains("0")){ %>checked<%} %>><bean:message bundle="resource" key="soccer"/>
+		    <input type="checkbox" name="hobby" value="1" <%if(dto.getHobbys().contains("1")){ %>checked<%} %>><bean:message bundle="resource" key="basket"/>
+		    <input type="checkbox" name="hobby" value="2" <%if(dto.getHobbys().contains("2")){ %>checked<%} %>><bean:message bundle="resource" key="tennis"/><br>
+		<bean:message bundle="resource" key="major"/>:<select id="major" name="major" >
+			   <option value="0" <%if("0".equals(dto.getMajor())){ %>selected<%} %>><bean:message bundle="resource" key="software"/></option>
+			   <option value="1" <%if("1".equals(dto.getMajor())){ %>selected<%} %>><bean:message bundle="resource" key="english"/></option>
+			   <option value="2" <%if("2".equals(dto.getMajor())){ %>selected<%} %>><bean:message bundle="resource" key="math"/></option> 
 		    </select><br>
-		简介:<br><textarea id="intro" name="intro"><%=dto.getIntro() %></textarea><br>
+		<bean:message bundle="resource" key="intro"/>:<br><textarea id="intro" name="intro"><%=dto.getIntro() %></textarea><br>
 		
-		<input type="submit" value="更新用户" onclick="changeActionName('userUpdate.do')">
-		<input type="submit" value="删除用户" onclick="changeActionName('userDel.do')">
-		<input type="button" value="重置">
+		<input type="submit" value="<bean:message bundle="resource" key="userUpdate"/>" onclick="changeActionName('userUpdate.do')">
+		<input type="submit" value="<bean:message bundle="resource" key="userDel"/>" onclick="changeActionName('userDel.do')">
+		<input type="button" value="<bean:message bundle="resource" key="reset"/>">
 	</form>
 </body>
 <%}else{%>
 <body>
 	<form action="userRegister.do">
 		<bean:message bundle="resource" key="username"/>:<input id="username" name="username"><br>
-		密码:<input type="password" id="password" name="password"><br>
-		性别:<input type="radio" name="sex"   id="sex1" value="0">男<input type="radio"  name="sex" id="sex2"  value="1" >女<br>
-		爱好:<input type="checkbox" name="hobby" value="0">足球
-		    <input type="checkbox" name="hobby" value="1">篮球
-		    <input type="checkbox" name="hobby" value="2">网球<br>
-		专业:<select id="major" name="major" >
-			   <option value="0">软件工程</option>
-			   <option value="1">英语</option>
-			   <option value="2">数学</option> 
+		<bean:message bundle="resource" key="password"/>:<input type="password" id="password" name="password"><br>
+		<bean:message bundle="resource" key="sex"/>:<input type="radio" name="sex"   id="sex1" value="0"><bean:message bundle="resource" key="male"/><input type="radio"  name="sex" id="sex2"  value="1" ><bean:message bundle="resource" key="famale"/><br>
+		<bean:message bundle="resource" key="hobby"/>:<input type="checkbox" name="hobby" value="0"><bean:message bundle="resource" key="soccer"/>
+		    <input type="checkbox" name="hobby" value="1"><bean:message bundle="resource" key="basket"/>
+		    <input type="checkbox" name="hobby" value="2"><bean:message bundle="resource" key="tennis"/><br>
+		<bean:message bundle="resource" key="major"/>:<select id="major" name="major" >
+			   <option value="0"><bean:message bundle="resource" key="software"/></option>
+			   <option value="1"><bean:message bundle="resource" key="english"/></option>
+			   <option value="2"><bean:message bundle="resource" key="math"/></option> 
 		    </select><br>
-		简介:<br><textarea id="intro" name="intro"></textarea><br>
+		<bean:message bundle="resource" key="intro"/>:<br><textarea id="intro" name="intro"></textarea><br>
 		
-		<input type="submit" value="注册用户">
-		<input type="button" value="重置">
+		<input type="submit" value="<bean:message bundle="resource" key="userRegister"/>">
+		<input type="button" value="<bean:message bundle="resource" key="reset"/>">
 	</form>
 </body>
 <%}%>

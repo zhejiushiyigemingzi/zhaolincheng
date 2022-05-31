@@ -16,6 +16,8 @@ public class UserForm extends ActionForm {
 	private String intro;
 	//爱好
 	private String[] hobby;
+	//删除用户名集合
+	private String[] check;
 	
 	public String getUsername() {
 		return username;
@@ -54,6 +56,12 @@ public class UserForm extends ActionForm {
 	}
 	public void setHobby(String[] hobby) {
 		this.hobby = hobby;
+	}
+	public String[] getCheck() {
+		return check;
+	}
+	public void setCheck(String[] check) {
+		this.check = check;
 	}
 	
 	
