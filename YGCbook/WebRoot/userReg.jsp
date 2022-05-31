@@ -1,5 +1,6 @@
 <%@page language="java" import="java.util.*" contentType="text/html; charset=utf-8"%>
 <%@page import="co.jsp.dto.UserinfoHobbyDto"%>
+<%@ taglib  uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <html>
 <head>
 <title>用户注册画面</title>
@@ -9,8 +10,6 @@ function changeActionName(actionName){
 	document.getElementById("username").disabled = false;
 }
 
-
-
 </script>
 </head>
 
@@ -18,7 +17,7 @@ function changeActionName(actionName){
 <%if(dto != null) {%>
 <body>
 	<form action="userUpdate.do" id="form">
-		姓名:<input disabled id="username" name="username" value="<%=dto.getUsername() %>"><br>
+		<bean:message bundle="resource" key="username"/>:<input disabled id="username" name="username" value="<%=dto.getUsername() %>"><br>
 		密码:<input type="password" id="password" name="password" value="<%=dto.getPassword() %>"><br>
 		性别:<input type="radio" name="sex"   id="sex1" value="0" <%if("0".equals(dto.getSex())){ %>checked<%} %>>男<input type="radio"  name="sex" id="sex2"  value="1" <%if("1".equals(dto.getSex())){ %>checked<%} %>>女<br>
 		爱好:<input type="checkbox" name="hobby" value="0" <%if(dto.getHobbys().contains("0")){ %>checked<%} %>>足球
@@ -36,10 +35,10 @@ function changeActionName(actionName){
 		<input type="button" value="重置">
 	</form>
 </body>
-<%}else {%>
+<%}else{%>
 <body>
 	<form action="userRegister.do">
-		姓名:<input id="username" name="username"><br>
+		<bean:message bundle="resource" key="username"/>:<input id="username" name="username"><br>
 		密码:<input type="password" id="password" name="password"><br>
 		性别:<input type="radio" name="sex"   id="sex1" value="0">男<input type="radio"  name="sex" id="sex2"  value="1" >女<br>
 		爱好:<input type="checkbox" name="hobby" value="0">足球
@@ -56,5 +55,5 @@ function changeActionName(actionName){
 		<input type="button" value="重置">
 	</form>
 </body>
-<%} %>
+<%}%>
 </html>

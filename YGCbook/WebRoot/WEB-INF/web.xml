@@ -756,6 +756,7 @@
         <param-name>config</param-name>
         <param-value>/WEB-INF/struts-config.xml</param-value>
     </init-param>
+    <load-on-startup>0</load-on-startup>
 </servlet>
 <servlet-mapping>
     <servlet-name>action</servlet-name>

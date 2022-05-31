@@ -26,7 +26,7 @@
 		
 		   <% List<UserinfoHobbyDto> UserinfoHobbyDto =(List<UserinfoHobbyDto>)request.getAttribute("UserinfoHobbyDto");%>
 			  <% if(UserinfoHobbyDto != null){%>
-			  <table border="1" style="width:80%;text-align:center">
+			  <table border="1" style="width:100%;text-align:center">
 					  <tr bgcolor="grey">
 					    <td><strong>姓名</strong></td>
 					    <td><strong>密码</strong></td>
