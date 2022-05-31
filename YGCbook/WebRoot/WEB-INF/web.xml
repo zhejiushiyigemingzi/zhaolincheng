@@ -676,7 +676,7 @@
    -->
   
   
-  <servlet>
+<!--   <servlet>
     <servlet-name>UserSearchServlet</servlet-name>
     <servlet-class>co.jsp.servlet.UserSearchServlet</servlet-class>
   </servlet>
@@ -687,7 +687,7 @@
     <servlet-name>UserSearchServlet</servlet-name>
     <url-pattern>/userSearch</url-pattern>
   </servlet-mapping>
-  
+   -->
  <!-- 
   �û���Ϣ���� END
    -->
@@ -749,6 +749,18 @@
   �û����� END
    -->
   
+ <servlet>
+    <servlet-name>action</servlet-name>
+    <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+    <init-param>
+        <param-name>config</param-name>
+        <param-value>/WEB-INF/struts-config.xml</param-value>
+    </init-param>
+</servlet>
+<servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+</servlet-mapping>
   
   
   <welcome-file-list>

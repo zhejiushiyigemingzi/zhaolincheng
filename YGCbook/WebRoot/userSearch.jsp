@@ -9,7 +9,7 @@
 
 
 <body>
-	<form action="userSearch">
+	<form action="userSearch.do">
 		姓名:<input id="username" name="username"><br>
 		性别:<input type="radio" name="sex" checked  id="sex1" value="0">男<input type="radio"  name="sex" id="sex2"  value="1">女<br>
 		
@@ -23,7 +23,7 @@
 		<br><br><br>
 		检索一览
 		<hr>
-		<center>
+		
 		   <% List<UserinfoHobbyDto> UserinfoHobbyDto =(List<UserinfoHobbyDto>)request.getAttribute("UserinfoHobbyDto");%>
 			  <% if(UserinfoHobbyDto != null){%>
 			  <table border="1" style="width:80%;text-align:center">
@@ -47,7 +47,7 @@
 					  
 					  
 					  
-					    <td><a href="userUpdateInit?username=<%=dto.getUsername()%>"><%=dto.getUsername()%></a></td>
+					    <td><a href="userUpdateInit.do?username=<%=dto.getUsername()%>"><%=dto.getUsername()%></a></td>
 					    <td><%=dto.getPassword()%></td>
 					    <td>
 					    <%
@@ -76,7 +76,7 @@
 				<%}%>
 				</table>
 			<%}%>	
-		</center>
+		
 	</form>
 </body>
 </html>

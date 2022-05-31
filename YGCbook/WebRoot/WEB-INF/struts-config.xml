@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+    
+
+    <form-beans>
+        <form-bean name="UserForm" type="co.jsp.form.UserForm" />
+    </form-beans>
+   
+    <action-mappings>
+        <action
+                path="/userRegister"
+                type="co.jsp.action.UserRegisterAction"
+                name="UserForm"
+                scope="request">
+                <forward name="userRegSucess" path="/userRegSucess.jsp"/>
+                <forward name="userRegErr" path="/userRegErr.jsp"/>
+        </action>
+       <action
+                path="/userDel"
+                type="co.jsp.action.UserDelAction"
+                name="UserForm"
+                scope="request">
+                <forward name="userSearch" path="/userSearch.jsp"/>
+        </action>
+        <action
+                path="/userSearch"
+                type="co.jsp.action.UserSearchAction"
+                name="UserForm"
+                scope="request">
+                <forward name="userSearch" path="/userSearch.jsp"/>
+        </action>
+        <action
+                path="/userUpdate"
+                type="co.jsp.action.UserUpdateAction"
+                name="UserForm"
+                scope="request">
+                <forward name="userUpdateSucess" path="/userUpdateSucess.jsp"/>
+        </action>
+        <action
+                path="/userUpdateInit"
+                type="co.jsp.action.UserUpdateInitAction"
+                name="UserForm"
+                scope="request">
+                <forward name="userReg" path="/userReg.jsp"/>
+        </action>
+
+    </action-mappings>
+
+</struts-config>

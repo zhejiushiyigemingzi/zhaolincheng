@@ -17,7 +17,7 @@ function changeActionName(actionName){
 <%UserinfoHobbyDto dto = (UserinfoHobbyDto)request.getAttribute("dto"); %>
 <%if(dto != null) {%>
 <body>
-	<form action="userUpdate" id="form">
+	<form action="userUpdate.do" id="form">
 		姓名:<input disabled id="username" name="username" value="<%=dto.getUsername() %>"><br>
 		密码:<input type="password" id="password" name="password" value="<%=dto.getPassword() %>"><br>
 		性别:<input type="radio" name="sex"   id="sex1" value="0" <%if("0".equals(dto.getSex())){ %>checked<%} %>>男<input type="radio"  name="sex" id="sex2"  value="1" <%if("1".equals(dto.getSex())){ %>checked<%} %>>女<br>
@@ -31,14 +31,14 @@ function changeActionName(actionName){
 		    </select><br>
 		简介:<br><textarea id="intro" name="intro"><%=dto.getIntro() %></textarea><br>
 		
-		<input type="submit" value="更新用户" onclick="changeActionName('userUpdate')">
-		<input type="submit" value="删除用户" onclick="changeActionName('userDel')">
+		<input type="submit" value="更新用户" onclick="changeActionName('userUpdate.do')">
+		<input type="submit" value="删除用户" onclick="changeActionName('userDel.do')">
 		<input type="button" value="重置">
 	</form>
 </body>
 <%}else {%>
 <body>
-	<form action="userRegister">
+	<form action="userRegister.do">
 		姓名:<input id="username" name="username"><br>
 		密码:<input type="password" id="password" name="password"><br>
 		性别:<input type="radio" name="sex"   id="sex1" value="0">男<input type="radio"  name="sex" id="sex2"  value="1" >女<br>

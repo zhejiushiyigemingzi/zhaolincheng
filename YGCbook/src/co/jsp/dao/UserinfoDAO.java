@@ -36,7 +36,7 @@ public class UserinfoDAO {
 		return (row == 1);
 	}
 	
-	/*public boolean update(Userinfo userinfo) {
+	public boolean update(Userinfo userinfo) {
 		int row = 0;
 		String sql = "update userinfo set delFlg = '0' where username = ?";
 
@@ -54,7 +54,7 @@ public class UserinfoDAO {
 			e.printStackTrace();
 		}
 		return (row == 1);
-	}*/
+	}
 	//伦理删除
 	public boolean deluserinfo(String username) {
 		String sql = "update userinfo set delFlg = '1' where username = ?";
@@ -112,7 +112,7 @@ public class UserinfoDAO {
 		//专业
 		if(!"".equals(major)){
 			
-			sql = sql + " and major = '" + major + "'";
+			sql = sql + " and major ='" + major + "'";
 		}	
 		sql = sql + " and userinfo.delFlg = '0' and hobby.delFlg = '0'";
 		List<UserinfoHobby> list = new Vector<UserinfoHobby>();
