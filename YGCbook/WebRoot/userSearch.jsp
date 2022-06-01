@@ -21,15 +21,60 @@
 			type : 'post',//数据发送方式
 			dataType : 'json',//接受数据格式
 			error : function(users){
-				alert(123); 
+				alert("失败"); 
 		    },
 			async : true,//异步加载
 			//PrintWinter输出的值会被ajax回调函数success : function(flag){}中的flag参数获取
 			success : function(users){
+				
+				while($("#userTable tr").length>1){
+					$("#userTable tr").eq(1).remove();
+			    }
 				for(i in users.datas){ 
-				  //将数据反映到前台表单
-				  alert(users.datas[i].username);
+					username = users.datas[i].username;
+					password = users.datas[i].password;
+					
+					sex = users.datas[i].sex;
+					if(sex == 0){
+						sex = "男";
+					}else{
+						sex = "女";
+					}
+					hobbys = users.datas[i].hobbys;
+					major = users.datas[i].major;
+					if(major == 0){
+						major = "软件工程";
+					}else if(major == 1){
+						major = "英语";
+					}else{
+						major = "数学";
+					}
+					intro = users.datas[i].intro;
+					//颜色控制
+					var bgcolor;
+					if(i%2 ==0){
+						bgcolor="#F0F8FF";
+					}else{
+						bgcolor="#7FFFD4";
+					}
+					
+					var userTr = '<tr bgcolor="' + bgcolor + '">' + 
+				    				 '<td><input type="checkbox"></td>' +
+				                     '<td>' +    '<a href="userUpdateInit.do?username=' + username + '">' + username + '</a>' +  '</td>' +
+				                     '<td>' + password + '</td>' + 
+				                     '<td>' + sex + '</td>' +
+				                     '<td>' + hobbys + '</td>' +
+				                     '<td>' + major + '</td>' +
+				                     '<td>' + intro + '</td>' + 
+				                     '<td style="width:20"><input type="button" value="更新"' + " onClick=changeToUpdatePage('" + username + "')" +'></td>' +
+				                     '<td style="width:20"><input type="button" value="删除"' + " onClick=delUser('" + username + "')" +'></td>' +
+				                  '</tr>';
+				    
+				                
+				   
+				    $("#userTable").append(userTr);
 				}
+				$("#userTable").append('<tr bgcolor="pink" align="center"><td colspan="9"><input onClick="delAction()"type="submit" onClick="" value="<bean:message bundle="resource" key="allDel"/>"></td></tr>');
 			}
 		});
 	}
@@ -56,13 +101,18 @@
    function delAction(){
 	   document.getElementById('form').action = 'delAll.do';
    }
+   
+   
+   function search(){
+	   document.getElementById('search').click();
+   }
 </script>
 <title>课后练习题</title>
 
 </head>
 
 
-<body>
+<body onload="search()">
 	<form action="userSearch.do" id="form">
 		姓名:<input id="username" name="username" onblur="executeAjax()"><br>
 		<bean:message bundle="resource" key="sex"/>:
@@ -83,7 +133,7 @@
 		
 		   <% List<UserinfoHobbyDto> UserinfoHobbyDto =(List<UserinfoHobbyDto>)request.getAttribute("UserinfoHobbyDto");%>
 			  <% if(UserinfoHobbyDto != null){%>
-			  <table border="1" style="width:100%;text-align:center">
+			  <table border="1" style="width:100%;text-align:center" id="userTable">
 					  <tr bgcolor="grey">
 					    <td style="width:20"><input type="checkbox" id="allCheckBox"onClick="delAll()"></td>
 					    <td><strong><bean:message bundle="resource" key="username"/></strong></td>

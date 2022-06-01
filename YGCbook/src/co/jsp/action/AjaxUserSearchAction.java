@@ -97,6 +97,8 @@ public class AjaxUserSearchAction extends Action {
 			}
 		 } 
 		
+		response.setContentType("text/html;charset=utf-8");
+		
 		PrintWriter out=response.getWriter();
 		//把检索结果转换为json序列
 		JSONArray json=JSONArray.fromObject(UserinfoHobbyDto);
