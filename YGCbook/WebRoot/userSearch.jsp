@@ -4,7 +4,35 @@
 <%@ taglib  uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <html>
 <head>
+<script src="jquery-3.2.1.min.js">
+</script>
 <script>
+	function executeAjax(){
+		var sex;
+		if(document.getElementsByName("sex")[0].checked){
+			sex = 0;
+		}else{
+			sex = 1;
+		}
+		var major = document.getElementById("major").value;
+		
+		$.ajax({
+			url : 'searchUsers.do?sex=' + sex + '&major=' + major + '&username=' + document.getElementById("username").value,
+			type : 'post',//数据发送方式
+			dataType : 'json',//接受数据格式
+			error : function(users){
+				alert(123); 
+		    },
+			async : true,//异步加载
+			//PrintWinter输出的值会被ajax回调函数success : function(flag){}中的flag参数获取
+			success : function(users){
+				for(i in users.datas){ 
+				  //将数据反映到前台表单
+				  alert(users.datas[i].username);
+				}
+			}
+		});
+	}
    function changeToUpdatePage(username){
 	    window.location="userUpdateInit.do?username=" + username;
    }
@@ -36,14 +64,17 @@
 
 <body>
 	<form action="userSearch.do" id="form">
-		姓名:<input id="username" name="username"><br>
-		<bean:message bundle="resource" key="sex"/>:<input type="radio" name="sex" checked  id="sex1" value="0"><bean:message bundle="resource" key="male"/><input type="radio"  name="sex" id="sex2"  value="1"><bean:message bundle="resource" key="famale"/><br>
+		姓名:<input id="username" name="username" onblur="executeAjax()"><br>
+		<bean:message bundle="resource" key="sex"/>:
+		<input type="radio" name="sex" checked  id="sex1" value="0" onblur="executeAjax()"><bean:message bundle="resource" key="male"/>
+		<input type="radio"  name="sex" id="sex2"  value="1" onblur="executeAjax()"><bean:message bundle="resource" key="famale"/><br>
 		
-		<bean:message bundle="resource" key="major"/>:<select id="major" name="major">
-		    <option value=""></option>
-			<option value="0"><bean:message bundle="resource" key="software"/></option>
-			<option value="1"><bean:message bundle="resource" key="english"/></option>
-			<option value="2"><bean:message bundle="resource" key="math"/></option>
+		<bean:message bundle="resource" key="major"/>:
+		<select id="major" name="major" onblur="executeAjax()">
+		    <option value="" onblur="executeAjax()"></option>
+			<option value="0" onblur="executeAjax()"><bean:message bundle="resource" key="software"/></option>
+			<option value="1" onblur="executeAjax()"><bean:message bundle="resource" key="english"/></option>
+			<option value="2" onblur="executeAjax()"><bean:message bundle="resource" key="math"/></option>
 		</select><br>
 		<input type="submit" value="<bean:message bundle="resource" key="search"/>">
 		<br><br><br>

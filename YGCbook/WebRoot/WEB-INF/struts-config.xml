@@ -61,6 +61,13 @@
                 name="UserForm"
                 scope="request">
         </action>
+        <!-- 追加Struts文件 -->
+        <action
+                path="/searchUsers"
+                type="co.jsp.action.AjaxUserSearchAction"
+                name="UserForm"
+                scope="request">
+        </action>
 
     </action-mappings>
     <message-resources key="resource" parameter="ApplicationResources_zh_CN" />

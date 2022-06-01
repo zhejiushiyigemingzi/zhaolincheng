@@ -103,7 +103,7 @@ public class UserinfoDAO {
                       + " left join hobby"
                       + " on userinfo.username = hobby.username where";
 		//用户名
-		if(!"".equals(username)){
+		if(username != null && !"".equals(username)){
 			
 			sql = sql + " userinfo.username ='" + username + "' and";
 		}
@@ -111,7 +111,7 @@ public class UserinfoDAO {
 		sql = sql + " sex = '" + sex + "'";
 		
 		//专业
-		if(!"".equals(major)){
+		if(major != null &&!"".equals(major)){
 			
 			sql = sql + " and major ='" + major + "'";
 		}	
@@ -127,7 +127,7 @@ public class UserinfoDAO {
 	}
 	
 	public List<Userinfo> checkUserName(String username) {
-		String sql = "select * from userinfo where delFlg = '0' and " + "username ='" + username + "'";
+		String sql = "select * from userinfo where delFlg = '0' and " + " userinfo.username ='" + username + "'";
 		
 		List<Userinfo> list = new Vector<Userinfo>();
 		try {
