@@ -15,7 +15,8 @@
 			sex = 1;
 		}
 		var major = document.getElementById("major").value;
-		
+		//searchUsers.do?sex=0 => 这种情况，后台得到的username值为null
+		//swaechUsers.do?sex=0&username=  => 这种情况，后台得到的username值为空字符串
 		$.ajax({
 			url : 'searchUsers.do?sex=' + sex + '&major=' + major + '&username=' + document.getElementById("username").value,
 			type : 'post',//数据发送方式
@@ -26,11 +27,13 @@
 			async : true,//异步加载
 			//PrintWinter输出的值会被ajax回调函数success : function(flag){}中的flag参数获取
 			success : function(users){
-				
+				//将数据反映到表单
 				while($("#userTable tr").length>1){
+					//jquery实现删除除标题行以外tr
 					$("#userTable tr").eq(1).remove();
 			    }
 				for(i in users.datas){ 
+					//与前台users.datas对应
 					username = users.datas[i].username;
 					password = users.datas[i].password;
 					
@@ -69,9 +72,7 @@
 				                     '<td style="width:20"><input type="button" value="更新"' + " onClick=changeToUpdatePage('" + username + "')" +'></td>' +
 				                     '<td style="width:20"><input type="button" value="删除"' + " onClick=delUser('" + username + "')" +'></td>' +
 				                  '</tr>';
-				    
-				                
-				   
+				    //往table末尾中添加HTML代码              
 				    $("#userTable").append(userTr);
 				}
 				$("#userTable").append('<tr bgcolor="pink" align="center"><td colspan="9"><input onClick="delAction()"type="submit" onClick="" value="<bean:message bundle="resource" key="allDel"/>"></td></tr>');
