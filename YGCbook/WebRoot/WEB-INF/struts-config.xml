@@ -54,6 +54,13 @@
                 scope="request">
                 <forward name="userReg" path="/userReg.jsp"/>
         </action>
+        <!-- 没有forward子tag,不需要进行页面跳转 -->
+        <action
+                path="/userNameCheck"
+                type="co.jsp.action.UserNameCheckAction"
+                name="UserForm"
+                scope="request">
+        </action>
 
     </action-mappings>
     <message-resources key="resource" parameter="ApplicationResources_zh_CN" />

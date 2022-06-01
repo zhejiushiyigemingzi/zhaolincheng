@@ -102,7 +102,7 @@
 					    <td style="width:20"><input type="button" onClick="delUser('<%=dto.getUsername() %>')" value="<bean:message bundle="resource" key="delete"/>"></td>
 					  </tr>
 				<%}%>
-				<tr bgcolor="#7FFFD4 align="center"><td colspan="9"><input onClick="delAction()"type="submit" onClick="" value="<bean:message bundle="resource" key="allDel"/>"></td></tr>
+				<tr bgcolor="pink" align="center"><td colspan="9"><input onClick="delAction()"type="submit" onClick="" value="<bean:message bundle="resource" key="allDel"/>"></td></tr>
 				</table>
 			<%}%>	
 		

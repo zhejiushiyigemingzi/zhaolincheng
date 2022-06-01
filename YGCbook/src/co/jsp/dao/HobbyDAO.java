@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Vector;
 
 import cn.key.dbManager.JdbcTemplate;
-import cn.key.mapping.UserinfoMapping;
+import cn.key.mapping.UserinfoHobbyMapping;
 import co.jsp.entity.Hobby;
 import co.jsp.entity.UserinfoHobby;
 

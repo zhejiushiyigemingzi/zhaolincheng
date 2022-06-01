@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Vector;
 
 import cn.key.dbManager.JdbcTemplate;
+import cn.key.mapping.UserinfoHobbyMapping;
 import cn.key.mapping.UserinfoMapping;
 import co.jsp.entity.Userinfo;
 import co.jsp.entity.UserinfoHobby;
@@ -76,7 +77,7 @@ public class UserinfoDAO {
 		//用户名
 		if(!"".equals(username)){
 			
-			sql = sql + " username = '" + username + "' and";
+			sql = sql + " userinfo.username = '" + username + "' and";
 		}
 		//性别
 		sql = sql + " sex = '" + sex + "'";
@@ -88,7 +89,7 @@ public class UserinfoDAO {
 		}	
 		List<Userinfo> list = new Vector<Userinfo>();
 		try {
-			list = template.selete(sql, new UserinfoMapping());
+			list = template.selete(sql, new UserinfoHobbyMapping());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -104,7 +105,7 @@ public class UserinfoDAO {
 		//用户名
 		if(!"".equals(username)){
 			
-			sql = sql + "username ='" + username + "' and";
+			sql = sql + " userinfo.username ='" + username + "' and";
 		}
 		//性别
 		sql = sql + " sex = '" + sex + "'";
@@ -117,11 +118,23 @@ public class UserinfoDAO {
 		sql = sql + " and userinfo.delFlg = '0' and hobby.delFlg = '0'";
 		List<UserinfoHobby> list = new Vector<UserinfoHobby>();
 		try {
-			list = template.selete(sql, new UserinfoMapping());
+			list = template.selete(sql, new UserinfoHobbyMapping());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
+		return list;
+	}
+	
+	public List<Userinfo> checkUserName(String username) {
+		String sql = "select * from userinfo where delFlg = '0' and " + "username ='" + username + "'";
+		
+		List<Userinfo> list = new Vector<Userinfo>();
+		try {
+			list = template.selete(sql, new UserinfoMapping());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return list;
 	}
 	
@@ -134,7 +147,7 @@ public class UserinfoDAO {
 		
 		List<UserinfoHobby> list = new Vector<UserinfoHobby>();
 		try {
-			list = template.selete(sql, new UserinfoMapping());
+			list = template.selete(sql, new UserinfoHobbyMapping());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
