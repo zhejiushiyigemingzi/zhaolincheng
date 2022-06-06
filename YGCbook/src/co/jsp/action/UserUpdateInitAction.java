@@ -21,10 +21,9 @@ public class UserUpdateInitAction extends Action {
 		String username = userForm.getUsername();
 	
 		
-		List<UserinfoHobbyDto> UserinfoHobbyDto = new UserUpdateInitService().userUpdateInit(username);
+		List<UserinfoHobbyDto> userinfoHobbyDto = new UserUpdateInitService().userUpdateInit(username);
 		
-		request.setAttribute("dto", UserinfoHobbyDto.get(0));
+		request.setAttribute("dto", userinfoHobbyDto.get(0));
 		return mapping.findForward("userReg");
-        	
 	}
 }

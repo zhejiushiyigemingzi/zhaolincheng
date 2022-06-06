@@ -12,6 +12,8 @@ import co.jsp.service.UserRegisterService;
 
 public class UserRegisterAction extends Action {
 	
+	UserRegisterService userRegisterService = new UserRegisterService();
+	
 
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
@@ -32,7 +34,7 @@ public class UserRegisterAction extends Action {
 		//爱好
 		dto.setHobby(userForm.getHobby());
 		
-		boolean sucessFlag = new UserRegisterService().userRegister(dto);
+		boolean sucessFlag =userRegisterService.userRegister(dto);
 		
         if(sucessFlag){
 		    return mapping.findForward("userRegSucess");

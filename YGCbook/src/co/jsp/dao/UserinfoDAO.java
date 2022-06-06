@@ -16,8 +16,8 @@ import co.jsp.entity.UserinfoHobby;
 public class UserinfoDAO {
 	private JdbcTemplate template = new JdbcTemplate();
 	
-	public boolean save(Userinfo userinfo) {
 		int row = 0;
+	public boolean save(Userinfo userinfo) {
 		String sql = "insert into userinfo(username,password,sex,major,intro,delFlg)"+" values(?,?,?,?,?,?)";
 		
 		Object[] values = new Object[]{
@@ -37,7 +37,7 @@ public class UserinfoDAO {
 		return (row == 1);
 	}
 	
-	public boolean update(Userinfo userinfo) {
+/*	public boolean update(Userinfo userinfo) {
 		int row = 0;
 		String sql = "update userinfo set delFlg = '0' where username = ?";
 
@@ -55,7 +55,7 @@ public class UserinfoDAO {
 			e.printStackTrace();
 		}
 		return (row == 1);
-	}
+	}*/
 	//伦理删除
 	public boolean deluserinfo(String username) {
 		String sql = "update userinfo set delFlg = '1' where username = ?";
@@ -70,31 +70,6 @@ public class UserinfoDAO {
 			e.printStackTrace();
 		}
 		return true;
-	}
-	
-	public List<Userinfo> findUserInfo(String username,String sex,String major) {
-		String sql = "select * from userinfo where delFlg = '0' and ";
-		//用户名
-		if(!"".equals(username)){
-			
-			sql = sql + " userinfo.username = '" + username + "' and";
-		}
-		//性别
-		sql = sql + " sex = '" + sex + "'";
-		
-		//专业
-		if(!"".equals(major)){
-			
-			sql = sql + " and major = '" + major + "'";
-		}	
-		List<Userinfo> list = new Vector<Userinfo>();
-		try {
-			list = template.selete(sql, new UserinfoHobbyMapping());
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return list;
 	}
 	
 	//公有的  返回值为UserinfoHobby的集合  方法名为findUserInfoANDHobby 参数为STRING类型的 username,sex,major
@@ -138,7 +113,7 @@ public class UserinfoDAO {
 		return list;
 	}
 	
-	public List<UserinfoHobby> findUserInfoANDHobby(String username) {
+	public List<UserinfoHobby> findUserInfoANDHobbyByUsername(String username) {
 		String sql = "select userinfo.username,password,sex,major,intro,hobby from userinfo"
                       + " left join hobby"
                       + " on userinfo.username = hobby.username where userinfo.username = '";

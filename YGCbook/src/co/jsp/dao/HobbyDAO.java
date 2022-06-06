@@ -21,10 +21,9 @@ public class HobbyDAO {
 		try {
 			for(Object object : list){
 				Hobby hobbyObject = (Hobby)object;
-				
 				Object[] values = null;
 				values = new Object[]{
-						hobbyObject.getUsername(), 
+						hobbyObject.getUsername(),  
 						hobbyObject.getHobby()};
 				 
 			  row = template.updata(sql, values);

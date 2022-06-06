@@ -3,7 +3,6 @@ package co.jsp.action;
 
 
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.Action;
@@ -24,11 +23,11 @@ public class UserNameCheckAction extends Action {
 		String username = userForm.getUsername();
 		
         UserNameCheckService userNameCheckService = new UserNameCheckService();
-        List<Userinfo> list = userNameCheckService.userNameCheck(username);
+        Userinfo userinfo = userNameCheckService.userNameCheck(username);
 		
 		PrintWriter printWriter = response.getWriter();
 		//调用DAO，从数据库获取用户信息....
-		if(list.size()>=1){
+		if(userinfo != null){
 			printWriter.print("1");;
 		}else{
 			printWriter.print("0");

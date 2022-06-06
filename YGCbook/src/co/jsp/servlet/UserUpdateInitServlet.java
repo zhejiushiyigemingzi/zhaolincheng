@@ -37,7 +37,7 @@ public class UserUpdateInitServlet extends HttpServlet {
 		
 		UserinfoDAO userinfodao = new UserinfoDAO(); 
 		
-		List<UserinfoHobby> list= userinfodao.findUserInfoANDHobby(username);
+		List<UserinfoHobby> list= userinfodao.findUserInfoANDHobbyByUsername(username);
 		
 		List<UserinfoHobbyDto> UserinfoHobbyDto = new ArrayList<UserinfoHobbyDto>();
 		//Map<String, String> userNamemap = new HashMap<String, String>();
