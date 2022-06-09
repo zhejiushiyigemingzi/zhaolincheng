@@ -135,7 +135,7 @@
 		   <% List<UserinfoHobbyDto> UserinfoHobbyDto =(List<UserinfoHobbyDto>)request.getAttribute("UserinfoHobbyDto");%>
 			  <% if(UserinfoHobbyDto != null){%>
 			  <table border="1" style="width:100%;text-align:center" id="userTable">
-					  <tr bgcolor="grey">
+					  <tr bgcolor="green">
 					    <td style="width:20"><input type="checkbox" id="allCheckBox"onClick="delAll()"></td>
 					    <td><strong><bean:message bundle="resource" key="username"/></strong></td>
 					    <td><strong><bean:message bundle="resource" key="password"/></strong></td>

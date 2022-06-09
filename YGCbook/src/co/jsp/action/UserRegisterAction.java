@@ -6,13 +6,20 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import co.jsp.dto.UserRegisterDto;
 import co.jsp.form.UserForm;
 import co.jsp.service.UserRegisterService;
+import co.jsp.service.inter.UserRegisterServiceinter;
 
+@Controller(value="/userRegister")
 public class UserRegisterAction extends Action {
 	
-	UserRegisterService userRegisterService = new UserRegisterService();
+	//@Autowirde默认通过type查找
+	//@Resource//默认通过name查找
+	@Autowired
+	private UserRegisterService userRegisterService;
 	
 
 	@Override
@@ -42,6 +49,16 @@ public class UserRegisterAction extends Action {
         	return mapping.findForward("userRegErr");
         }
 	}
-	
+
+
+	public UserRegisterService getUserRegisterService() {
+		return userRegisterService;
+	}
+
+
+	public void setUserRegisterService(UserRegisterService userRegisterService) {
+		this.userRegisterService = userRegisterService;
+	}
+
 
 }

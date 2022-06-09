@@ -6,7 +6,7 @@
 <mapper namespace="co.jsp.mapper.HobbyMapper">
     <!-- id名与hobbymapper类中的方法名一致 ,parameterType指的是传入参数的类型-->
     <insert id="save" >
-                             <!-- 0和1代表 传入参数的先后顺序-->
+       <!-- 0和1代表 传入参数的先后顺序-->
        insert into hobby(username,hobby) values(#{0},#{1})
     </insert>
     <update id="delHobby" >

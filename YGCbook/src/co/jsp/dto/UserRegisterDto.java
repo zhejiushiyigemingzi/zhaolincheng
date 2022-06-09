@@ -1,6 +1,5 @@
 package co.jsp.dto;
 
-import org.apache.struts.action.ActionForm;
 
 public class UserRegisterDto {
 

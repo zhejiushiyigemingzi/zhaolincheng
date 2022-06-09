@@ -15,7 +15,7 @@
     <select id="findUserInfoANDHobby" resultType="co.jsp.entity.UserinfoHobby">
          select userinfo.username,password,sex,major,intro,hobby from userinfo
          left join hobby
-         on userinfo.username = hobby.username where sex=#{sex} and userinfo.delFlg='0'
+         on userinfo.username = hobby.username where sex=#{sex} and userinfo.delFlg='0'and hobby.delFlg='0'
          <if test='username != ""'>
          and userinfo.username =#{username}
          </if>

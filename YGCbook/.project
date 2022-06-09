@@ -50,4 +50,11 @@
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/applicationContext.xml</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/006_%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AEv20210621/%E7%AC%AC11%E9%83%A8%E5%88%86.Spring%E6%A1%86%E6%9E%B6%E5%AF%BC%E5%85%A5%E5%8F%8AStruts+Spring+Mybatis%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/spring3.2.8%E6%89%80%E9%9C%80jar%E5%8C%85/applicationContext.xml</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -10,7 +10,7 @@ public class MyBatisUtil {
 	
     private static SqlSessionFactory sqlSessionFactory = null;
     public static SqlSessionFactory getSqlSessionFactory(){
-    	
+    	 
     	InputStream inputStream = null;
     	if(null == sqlSessionFactory){
 	    	String resource = "MyBatis_config.xml";

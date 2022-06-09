@@ -6,10 +6,18 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
 import co.jsp.form.UserForm;
 import co.jsp.service.UserDelService;
 
+
+@Controller(value="/userDel")
 public class UserDelAction extends Action {
+	
+	@Autowired
+	private UserDelService userDelService;
 	
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
@@ -19,14 +27,17 @@ public class UserDelAction extends Action {
 	    String username = userForm.getUsername();
 		
 		//用户信息表更新Flag
-		boolean updateUserinfoFlag = new UserDelService().userDel(username);
-		
-		if(updateUserinfoFlag){
-			System.out.println("用户信息表伦理删除成功");
-		}else{
-			System.out.println("用户信息表伦理删除失败");
-		}
-		
+		boolean  updateUserinfoFlag = userDelService.userDel(username);
+
         return mapping.findForward("userSearch");
 	}
+
+	public UserDelService getUserDelService() {
+		return userDelService;
+	}
+
+	public void setUserDelService(UserDelService userDelService) {
+		this.userDelService = userDelService;
+	}
+	
 }

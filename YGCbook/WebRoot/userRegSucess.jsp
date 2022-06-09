@@ -6,6 +6,8 @@
 <title>用户注册成功页面</title>
 </head>
 <body>
-    <center><h1>用户注册成功！！！！</h1></center>
+    <center><h1>用户注册成功！！！！</h1>
+     <img src="123/20220524163601_60558.gif" width="40%">
+     </center>
 </body>
 </html>

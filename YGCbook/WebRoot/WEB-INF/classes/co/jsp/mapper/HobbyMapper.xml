@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--绑定对应Dao/Mapper接口-->
+<mapper namespace="co.jsp.mapper.HobbyMapper">
+    <!-- id名与hobbymapper类中的方法名一致 ,parameterType指的是传入参数的类型-->
+    <insert id="save" >
+       <!-- 0和1代表 传入参数的先后顺序-->
+       insert into hobby(username,hobby) values(#{0},#{1})
+    </insert>
+    <update id="delHobby" >
+       update hobby set delFlg='1' where username = #{0}                     
+    </update>
+ 
+</mapper>
+

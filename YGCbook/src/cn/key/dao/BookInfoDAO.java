@@ -10,6 +10,7 @@ import cn.key.entity.BookInfo;
 import cn.key.mapping.BookInfoMapping;
 
 public class BookInfoDAO {
+	private String name;
 	private JdbcTemplate template = new JdbcTemplate();
 	public boolean save(BookInfo book) {
 		int row = 0;
@@ -355,5 +356,27 @@ public class BookInfoDAO {
 		return list;
 	}
 
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public JdbcTemplate getTemplate() {
+		return template;
+	}
+
+
+	public void setTemplate(JdbcTemplate template) {
+		this.template = template;
+	}
+
+	
+	
 }
 
